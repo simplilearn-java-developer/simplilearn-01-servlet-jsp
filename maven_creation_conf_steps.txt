@@ -1,0 +1,39 @@
+
+1. Ensure you have a 2023 Eclipse IDE version.
+
+2. Create the Maven project using maven-archetype-webapp
+
+3. Add the following folders:
+   - src/main/java
+   - src/test/java
+
+4. Add the properties section in the POM.xml file.
+
+5. Add the dependencies (servlet, jsp) in the POM.xml file.
+
+6. Add the maven-war-plugin so maven can package our project as .war file.
+
+7. Open the Server tab and install Tomcat v9.0 (just once)
+   - Download Tomcat v9.x manually if needed from
+     -- https://tomcat.apache.org/download-90.cgi
+
+8. Right-click the project's name, then click properties
+   - Targeted Runtime: Apache Tomcat v9.0
+
+9. Right-click the project's name, then select Maven / Update Project / Check off Force Update / OK
+
+10. Right-click the project's name, the select Run As / Maven Build / clean install / Run
+
+11. Add the welcome-file-list to the web.xml file.
+    - Ensure you are at the Source tab (not the Design tab)
+
+12. Right-click the project's name, the select Run As / Run on Server / Select the Server / Finish
+
+13. Open the Browser an type the following in the search bar:
+    - http://localhost:8080/servlet/
+    - Replace "servlet" in the above URL with the value that you set in the POM.xml for the finalName tags.
+      -- <finalName>servlet</finalName>
+
+
+
+
