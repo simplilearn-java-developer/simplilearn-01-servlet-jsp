@@ -4,4 +4,27 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <display-name>HelloServlet</display-name>
+    <description></description>
+    <servlet-class>com.simplilearn.course.servlet._01_HelloServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>_03_ParametersServlet</servlet-name>
+  	<display-name>_03_ParametersServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.simplilearn.course.servlet._03_ParametersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/HelloServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>_03_ParametersServlet</servlet-name>
+  	<url-pattern>/_03_ParametersServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

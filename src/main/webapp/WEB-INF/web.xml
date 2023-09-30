@@ -4,6 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>TokenValidatorFilter</filter-name>
+  	<display-name>TokenValidatorFilter</display-name>
+  	<description></description>
+  	<filter-class>com.simplilearn.course.filter._01_TokenValidatorFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>TokenValidatorFilter</filter-name>
+  	<url-pattern>/TokenServlet</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <display-name>HelloServlet</display-name>
