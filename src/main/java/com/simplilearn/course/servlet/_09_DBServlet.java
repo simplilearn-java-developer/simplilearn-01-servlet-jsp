@@ -29,21 +29,25 @@ public class _09_DBServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    	boolean show = Boolean.valueOf(request.getParameter("show"));
+    	List<User> users = new ArrayList<>();
     	
-    	if (show) {
-    	   List<User> users = this.loadUsers();
-    	   request.setAttribute("users", users);
-    	}
+        boolean show = Boolean.valueOf(request.getParameter("show"));
 
-    	request.getRequestDispatcher("user_db_data.jsp").forward(request, response);
+        if (show) {
+           users = this.loadUsers();
+        }
+
+        request.setAttribute("show", show);
+        request.setAttribute("users", users);
+
+        request.getRequestDispatcher("user_db_data_actions.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
-    
+
     List<User> loadUsers(){
 
         String dbUrl = "jdbc:mysql://localhost:3306/mydb";
@@ -60,10 +64,10 @@ public class _09_DBServlet extends HttpServlet {
         System.out.println("Query: " + sql);
 
         try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         /*
          * Get data from the DB table;
          */

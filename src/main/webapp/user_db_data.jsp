@@ -34,7 +34,7 @@
           <th><%= user.getFirstName() + " " + user.getLastName() %></th>
           <th><%= user.getUsername() %></th>
           <th><%= user.getBirth() %></th>
-          <th><%= user.getStatus() %></th>
+          <th><%= user.getStatus()%></th>
         </tr>
 <%
       }
