@@ -95,7 +95,7 @@ public class _10_DBServletById extends HttpServlet {
         out.print("</html>");
     }
 
-    User loadUser(String id){
+    private User loadUser(String id){
 
         User user = null;
 

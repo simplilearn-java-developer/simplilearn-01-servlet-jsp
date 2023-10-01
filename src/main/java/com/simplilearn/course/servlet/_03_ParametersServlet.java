@@ -1,7 +1,6 @@
 package com.simplilearn.course.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,16 +22,10 @@ public class _03_ParametersServlet extends HttpServlet {
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");
 
-        PrintWriter out = response.getWriter();
+        System.out.println("firstname: " + firstName);
+        System.out.println("lastname: " + lastName);
 
-        out.print("<html>");
-        out.print("<body>");
-        out.print("<h1>Parameters HttpServlet Class Example</h1>");
-        out.print("<br>");
-        out.print("<h2>First Name: " + firstName + "</h2>");
-        out.print("<h2>Last Name: " + lastName + "</h2>");
-        out.print("</body>");
-        out.print("</html>");
+        request.getRequestDispatcher("parameters.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

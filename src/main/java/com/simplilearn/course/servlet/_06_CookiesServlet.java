@@ -1,7 +1,6 @@
 package com.simplilearn.course.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 
 import javax.servlet.ServletException;
@@ -23,7 +22,6 @@ public class _06_CookiesServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         Cookie[] cookies = request.getCookies();
 
         /* Functional Programming */
@@ -33,35 +31,18 @@ public class _06_CookiesServlet extends HttpServlet {
                          .findAny().orElse(null);
 
         boolean remove = Boolean.valueOf(request.getParameter("remove"));
-        
+
         if (remove) {
-        	
-        	user = null;
 
-        	Cookie cookie = new Cookie(COOKIE_NAME,user);
-        	cookie.setMaxAge(0);
-        	response.addCookie(cookie);
+            user = null;
+
+            Cookie cookie = new Cookie(COOKIE_NAME,user);
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
         }
-        
-        PrintWriter out = response.getWriter();
 
-        out.print("<html>");
-        out.print("<body>");
-        out.print("<h1>Cookies HttpServlet Class Example</h1>");
-        out.print("<br>");
-        out.print("<h2>User Cookie Value: " + user + "</h2>");
-        out.print("<br>");
-        out.print("<a href='" + request.getContextPath() + "/CookiesServlet?remove=true'>Remove Cookie</a>");
-        out.print("<br>");
-        out.print("<a href='" + request.getContextPath() + "/CookiesServlet'>Refresh</a>");
-        out.print("<form action='CookiesServlet' method='post'>");
-        out.print("<br>");
-        out.print("Input User: <input type='text' name='user' required>");
-        out.print("&nbsp;");
-        out.print("<input type='submit' value='Create User Cookie'>");
-        out.print("</form>");
-        out.print("</body>");
-        out.print("</html>");
+        request.setAttribute("user",user);
+        request.getRequestDispatcher("cookies_form.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
